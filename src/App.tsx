@@ -2,6 +2,21 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
+type test = {
+  id: number;
+  name: string;
+  check: boolean;
+};
+
+const data: test[] = [
+  { id: 1, name: "りんご", check: false },
+  { id: 2, name: "みかん", check: false },
+  { id: 3, name: "ばなな", check: false },
+  { id: 4, name: "ぶどう", check: false },
+  { id: 5, name: "なし", check: false },
+  { id: 6, name: "もも", check: false },
+];
+
 function App() {
   const [count, setCount] = useState(0);
 
