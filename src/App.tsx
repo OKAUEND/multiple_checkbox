@@ -19,6 +19,29 @@ const data: test[] = [
 
 function App() {
   const [count, setCount] = useState(0);
+  const [checked, setChecked] = useState(new Map<string, string>([]));
+
+  const changehandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked) {
+      setChecked((prev) => {
+        //元のに変更を加えたくないので、クローンを作る
+        const clone = new Map(prev);
+        //お試しなので、キーと内容を同じにする
+        clone.set(event.target.value, event.target.value);
+        //setter関数へ返す
+        return clone;
+      });
+    } else {
+      setChecked((prev) => {
+        //元のに変更を加えたくないので、クローンを作る
+        const clone = new Map(prev);
+        //クローンに対して、チェックを外した内容を削除する
+        clone.delete(event.target.value);
+        //setter関数へ返す
+        return clone;
+      });
+    }
+  };
 
   return (
     <div className='App'>
