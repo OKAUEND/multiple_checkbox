@@ -65,6 +65,23 @@ function App() {
       <p className='read-the-docs'>
         Click on the Vite and React logos to learn more
       </p>
+      <ul>
+        現在選択されている値：
+        <b>
+          {[...checked.keys()].map((key, index) => (
+            <div key={index}>{key}</div>
+          ))}
+        </b>
+        {data.map((item, index) => (
+          <li key={index}>
+            <input
+              type='checkbox'
+              value={item.name}
+              onChange={changehandler}></input>
+            {item.name}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
